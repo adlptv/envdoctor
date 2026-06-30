@@ -54,9 +54,9 @@ EnvDoctor is a developer tool that scans your codebase for environment variable 
 ##
 ## 📸 Screenshots
 
-| Landing Page | Dashboard |
+| Env Var Inventory & Type Inference | Secret Exposure & Drift Alerts |
 |:---:|:---:|
-| ![Envdoctor Hero](screenshots/hero.png) | ![Envdoctor Dashboard](screenshots/dashboard.png) |
+| ![Secret Exposure & Drift Alerts](screenshots/dashboard.png) |
 
 > 💡 *Run locally to see the full interactive experience: `pnpm dev` then open http://localhost:3000*
 
