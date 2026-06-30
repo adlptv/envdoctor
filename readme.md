@@ -51,7 +51,16 @@ EnvDoctor is a developer tool that scans your codebase for environment variable 
   - Helper functions (`hasEnvVar`, `getRawEnvVar`)
 - Copy, paste, ship.
 
-## Getting Started
+##
+## 📸 Screenshots
+
+| Landing Page | Dashboard |
+|:---:|:---:|
+| ![Envdoctor Hero](screenshots/hero.png) | ![Envdoctor Dashboard](screenshots/dashboard.png) |
+
+> 💡 *Run locally to see the full interactive experience: `pnpm dev` then open http://localhost:3000*
+
+ Getting Started
 
 ### Prerequisites
 - Node.js 18+
