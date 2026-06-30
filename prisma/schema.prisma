@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  repoPath    String?
+  language    String   @default("typescript")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  scans       Scan[]
+}
+
+model Scan {
+  id        String   @id @default(cuid())
+  projectId String
+  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  files     String   @default("[]")
+  variables String   @default("[]")
+  stats     String   @default("{}")
+  createdAt DateTime @default(now())
+  envVars   EnvVar[]
+  driftReports DriftReport[]
+}
+
+model EnvVar {
+  id           String   @id @default(cuid())
+  scanId       String
+  scan         Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  name         String
+  type         String   @default("string")
+  required     Boolean  @default(false)
+  defaultValue String?
+  description  String?
+  isSecret     Boolean  @default(false)
+  usageCount   Int      @default(1)
+  files        String   @default("[]")
+  createdAt    DateTime @default(now())
+}
+
+model DriftReport {
+  id          String   @id @default(cuid())
+  scanId      String
+  scan        Scan     @relation(fields: [scanId], references: [id], onDelete: Cascade)
+  missingVars String   @default("[]")
+  extraVars   String   @default("[]")
+  createdAt   DateTime @default(now())
+}
