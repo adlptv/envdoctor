@@ -8,9 +8,9 @@ Scans your codebase for environment variable usage across six languages. Infers 
 
 ## Screenshots
 
-| Env Var Inventory and Type Inference | Secret Exposure and Drift Alerts |
+| Landing Page (Inventory) | Alerts (Drift + Secrets) |
 |:---:|:---:|
-| ![Env Var Inventory and Type Inference](screenshots/hero.png) | ![Secret Exposure and Drift Alerts](screenshots/dashboard.png) |
+| ![Alerts: drift detection and secret exposure warnings with specific variable details](screenshots/dashboard.png) |
 
 ## Features
 

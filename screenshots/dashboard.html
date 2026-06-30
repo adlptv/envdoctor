@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>EnvDoctor</title><style>
+      body{font-family:system-ui,sans-serif;background:#0f172a;color:#e2e8f0;margin:0}
+      .nav{padding:16px 32px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b}
+      .logo{font-size:18px;font-weight:700;display:flex;align-items:center;gap:8px}
+      .logo span{background:linear-gradient(135deg,#06b6d4,#10b981);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+      .hero{padding:60px 32px;max-width:1100px;margin:0 auto}
+      .hero h1{font-size:42px;font-weight:800;margin:0 0 16px;line-height:1.2}
+      .hero h1 .g1{color:#06b6d4}.hero h1 .g2{color:#10b981}
+      .hero p{font-size:15px;color:#94a3b8;max-width:540px;line-height:1.6;margin:0 0 24px}
+      .btn{display:inline-flex;padding:12px 28px;border-radius:8px;background:linear-gradient(135deg,#0891b2,#059669);color:#fff;font-weight:600;text-decoration:none}
+      .env-table{margin-top:40px;background:#0f172a;border:1px solid #1e293b;border-radius:12px;overflow:hidden}
+      .et-hdr{display:grid;grid-template-columns:2fr 1fr 80px 80px 1fr;padding:12px 16px;background:#1e293b;font-size:11px;font-weight:700;color:#06b6d4;text-transform:uppercase;letter-spacing:.5px}
+      .et-row{display:grid;grid-template-columns:2fr 1fr 80px 80px 1fr;padding:10px 16px;border-bottom:1px solid rgba(30,41,59,.5);font-size:12px;align-items:center}
+      .et-name{font-family:monospace;color:#67e8f9}
+      .et-type{padding:2px 8px;border-radius:4px;font-size:10px;font-weight:600;display:inline-block}
+      .type-string{background:rgba(147,197,253,.12);color:#93c5fd}
+      .type-number{background:rgba(252,211,77,.12);color:#fcd34d}
+      .type-boolean{background:rgba(196,181,253,.12);color:#c4b5fd}
+      .type-url{background:rgba(110,231,183,.12);color:#6ee7b7}
+      .et-req{text-align:center}.et-req.yes{color:#34d399}.et-req.no{color:#64748b}
+      .et-secret{text-align:center}.et-secret.flag{color:#f87171;font-weight:700}
+      .et-desc{color:#64748b;font-size:11px}
+      .alert-box{margin-top:24px;padding:16px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:8px;display:flex;gap:12px;align-items:flex-start}
+      .alert-box .icon{font-size:20px}.alert-box div{font-size:12px;color:#fca5a5;line-height:1.5}
+      .alert-box strong{color:#f87171}
+      .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto;padding:60px 32px}
+      .fcard{padding:24px;background:rgba(255,255,255,.02);border:1px solid #1e293b;border-radius:10px}
+      .fcard h3{font-size:15px;color:#f8fafc;margin:0 0 6px}.fcard p{font-size:13px;color:#64748b;margin:0}
+    
+.hero h1, .hero p, .btn { display: none !important; } .hero { padding: 10px 32px !important; } .features { display: none !important; } .nav { position: relative; }
+</style></head><body>
+      <nav class="nav"><div class="logo">🔐 <span>EnvDoctor</span></div><div style="font-size:13px;color:#64748b">Scan: my-app/ · 24 files · 18 vars found</div></nav>
+      <section class="hero">
+        <h1><span class="g1">Never Miss</span> an Env Var.<br><span class="g2">Never Expose</span> a Secret.</h1>
+        <p>Scan your codebase across 6 languages. Infer types from usage patterns. Generate typed accessors and accurate .env.example. Detect drift between docs and production.</p>
+        <a href="#" class="btn">Scan Your Project →</a>
+        <div class="env-table">
+          <div class="et-hdr"><div>Variable</div><div>Type (Inferred)</div><div>Required</div><div>Secret</div><div>Description</div></div>
+          <div class="et-row"><div class="et-name">DATABASE_URL</div><div><span class="et-type type-url">URL</span></div><div class="et-req yes">Yes</div><div class="et-secret flag">⚠️</div><div class="et-desc">PostgreSQL connection string (detected: Prisma schema)</div></div>
+          <div class="et-row"><div class="et-name">PORT</div><div><span class="et-type type-number">Number</span></div><div class="et-req no">No</div><div class="et-secret"></div><div class="et-desc">Server port (default: 3000)</div></div>
+          <div class="et-row"><div class="et-name">JWT_SECRET</div><div><span class="et-type type-string">String</span></div><div class="et-req yes">Yes</div><div class="et-secret flag">⚠️</div><div class="et-desc">HMAC signing key for JWT tokens</div></div>
+          <div class="et-row"><div class="et-name">REDIS_URL</div><div><span class="et-type type-url">URL</span></div><div class="et-req no">No</div><div class="et-secret flag">⚠️</div><div class="et-desc">Redis connection (optional cache layer)</div></div>
+          <div class="et-row"><div class="et-name">API_RATE_LIMIT</div><div><span class="et-type type-number">Number</span></div><div class="et-req no">No</div><div class="et-secret"></div><div class="et-desc">Max requests per minute (default: 100)</div></div>
+          <div class="et-row"><div class="et-name">ENABLE_ANALYTICS</div><div><span class="et-type type-boolean">Boolean</span></div><div class="et-req no">No</div><div class="et-secret"></div><div class="et-desc">Feature flag for analytics (usage: === "true")</div></div>
+        </div>
+        <div class="alert-box"><div class="icon">🔴</div><div><strong>Secret Exposure Warning:</strong> DATABASE_URL and JWT_SECRET are present in codebase but missing from .env.example. 2 more variables exist in production but not in documentation (DRIFT DETECTED).</div></div>
+      </section>
+      <div class="features">
+        <div class="fcard"><h3>🔍 Static Analysis</h3><p>Scan 6 languages: JavaScript, TypeScript, Python, Go, Rust, Java. Auto-detect env var access patterns.</p></div>
+        <div class="fcard"><h3>🧠 Type Inference</h3><p>parseInt→number, ===true→boolean, URL constructor→URL. Infers types from actual usage.</p></div>
+        <div class="fcard"><h3>📝 Doc Generator</h3><p>Auto-generate .env.example + Markdown table + typed TypeScript accessor with Zod validation.</p></div>
+        <div class="fcard"><h3>⚠️ Drift Detection</h3><p>Compare documentation vs production deployment. Flag missing, extra, and changed variables.</p></div>
+        <div class="fcard"><h3>🔐 Secret Detection</h3><p>Flag Token/Key/Secret/Password patterns + entropy analysis for high-risk variables.</p></div>
+        <div class="fcard"><h3>⚡ Typed Accessor</h3><p>Generate env.ts with full TypeScript types + runtime Zod validation. Zero config.</p></div>
+      </div>
+    </body></html>
